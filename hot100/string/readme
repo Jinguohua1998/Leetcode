@@ -1,0 +1,9 @@
+根据符号分割字符串的方法
+1. char ch; int a, b, c
+ cin >> a >> ch >> b >> ch 
+2. scanf("%d%c%d%c". &a, &ch, &b, &ch)
+3. string s
+    s.find(ch)
+    s.substr()
+4. istringstream is
+    getline(is, s, ch)

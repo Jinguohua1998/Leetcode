@@ -1,0 +1,7 @@
+处理字符串的时候一定要注意是否有空格，以及特殊字符（非法字符）
+分割字符串可以用istringstream
+isspace isdigit isalpha
+isupper islower
+string s  s.find() 返回索引。如未找到，则返回string::pos(size_t的最大值)
+
+稳定排序 stable_sort
