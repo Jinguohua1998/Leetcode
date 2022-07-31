@@ -8,8 +8,8 @@ using namespace std;
 class Solution {
 
 private:
-vector<vector<string>> result;
-vector<string> board;
+    vector<vector<string>> result;
+    vector<string> board;
 
 // n 为输入的棋盘大小
 // row 是当前递归到***的第几行了

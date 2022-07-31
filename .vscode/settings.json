@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "xstring": "cpp",
-        "iterator": "cpp",
-        "algorithm": "cpp",
-        "limits": "cpp",
-        "utility": "cpp"
-    }
-}

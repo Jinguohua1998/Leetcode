@@ -23,7 +23,7 @@ public:
 // DFS
 class Solution {
 public:
-    unordered_map<Node*, Node*> visited;
+    unordered_map<Node*, Node*> visited;    // key 是旧图的节点，val是新图的节点
     Node* cloneGraph(Node* node) {
         if (node == nullptr) {
             return node;

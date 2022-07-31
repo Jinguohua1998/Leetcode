@@ -7,6 +7,7 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
+// 前序遍历
 class Solution {
 public:
     int dfs(TreeNode* root, int prevSum) {

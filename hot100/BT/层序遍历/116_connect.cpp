@@ -17,36 +17,45 @@ public:
         : val(_val), left(_left), right(_right), next(_next) {}
 };
 
-
+// 层序遍历
 class Solution {
 public:
     Node* connect(Node* root) {
         queue<Node*> que;
-        if (root != NULL) que.push(root);
+        if (root != nullptr) que.push(root);
         while (!que.empty()) {
             int size = que.size();
-            // vector<int> vec;
-            Node* nodePre;
-            Node* node;
-            for (int i = 0; i < size; i++) {
-                if (i == 0) {
-                    nodePre = que.front(); // 取出一层的头结点
-                    que.pop();
-                    node = nodePre;
-                } else {
-                    node = que.front();
-                    que.pop();
-                    nodePre->next = node; // 本层前一个节点next指向本节点
-                    nodePre = nodePre->next;
-                }
-                if (node->left) 
-                    que.push(node->left);
-                if (node->right) 
-                    que.push(node->right);
+            for (int i = 0; i < size; ++i) {
+                Node* node = que.front();
+                que.pop();
+                if (i != size - 1) {
+                    node->next = que.front();   // 如果不是最后一个Node 则指向下一个Node
+                } else node->next = nullptr;    // 如果是最后一个Node 则指向nullptr
+                if (node->left != nullptr) que.push(node->left);
+                if (node->right != nullptr) que.push(node->right);
             }
-            nodePre->next = NULL; // 本层最后一个节点指向NULL
         }
         return root;
+    }
+};
 
+// 前序遍历
+class Solution {
+private:
+    void traversal(Node* cur) {
+        if (cur == NULL) return;
+                                // 中
+        if (cur->left) cur->left->next = cur->right; // 操作1
+        if (cur->right) {
+            if (cur->next) cur->right->next = cur->next->left; // 操作2
+            else cur->right->next = NULL;
+        }
+        traversal(cur->left);   // 左
+        traversal(cur->right);  // 右
+    }
+public:
+    Node* connect(Node* root) {
+        traversal(root);
+        return root;
     }
 };

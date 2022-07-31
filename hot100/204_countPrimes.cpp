@@ -2,7 +2,8 @@
 
 using namespace std;
 
-// 计算质数的个数
+// 计算质数的个数，0不是质数
+// 埃氏筛
 class Solution {
 public:
     int countPrimes(int n) {

@@ -12,7 +12,37 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-//用容器存储，也可以用vector
+// 把链表放进数组中，然后通过双指针法，一前一后，来遍历数组，构造链表。
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        vector<ListNode*> vec;
+        ListNode* cur = head;
+        if (cur == nullptr) return;
+        while(cur != nullptr) {
+            vec.push_back(cur);
+            cur = cur->next;
+        }
+        cur = head;
+        int i = 1;
+        int j = vec.size() - 1;  // i j为之前前后的双指针
+        int count = 0; // 计数，偶数去后面，奇数取前面
+        while (i <= j) {
+            if (count % 2 == 0) {
+                cur->next = vec[j];
+                j--;
+            } else {
+                cur->next = vec[i];
+                i++;
+            }
+            cur = cur->next;
+            count++;
+        }
+        cur->next = nullptr; // 注意结尾
+    }
+};
+
+// 把链表放进双向队列，然后通过双向队列一前一后弹出数据，来构造新的链表。
 class Solution {
 public:
     void reorderList(ListNode* head) {
@@ -44,31 +74,6 @@ public:
     }
 };
 
-class Solution {
-public:
-    void reorderList(ListNode *head) {
-        if (head == nullptr) {
-            return;
-        }
-        vector<ListNode *> vec;
-        ListNode *node = head;
-        while (node != nullptr) {
-            vec.emplace_back(node);
-            node = node->next;
-        }
-        int i = 0, j = vec.size() - 1;
-        while (i < j) {
-            vec[i]->next = vec[j];
-            i++;
-            if (i == j) {
-                break;
-            }
-            vec[j]->next = vec[i];
-            j--;
-        }
-        vec[i]->next = nullptr;
-    }
-};
 
 
 // 先反转链表再合并两个链表

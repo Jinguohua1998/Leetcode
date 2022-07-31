@@ -14,25 +14,20 @@ BinaryTreeNode* GetNext(BinaryTreeNode* pNode){
     
     BinaryTreeNode* pNext = nullptr;
     if(pNode->mRight != nullptr){
-
         BinaryTreeNode* pRight = pNode->mRight;
         while(pRight->mLeft != nullptr){
             pRight = pRight->mLeft;
         }
         pNext = pRight;
-    }else if(pNode->mParent != nullptr){ 
-//else if的判断条件不能为空
-
+    }else{ 
         BinaryTreeNode* pCurrent = pNode;
         BinaryTreeNode* pParent = pNode->mParent;
-        
         while(pParent != nullptr && pCurrent == pParent->mRight){ 
 //while的两个判断条件顺序不能颠倒
             pCurrent = pParent;
             pParent = pParent->mParent;
         }
         pNext = pParent;
-        
     }
     return pNext;
 }
