@@ -1,3 +1,4 @@
+// 除自身以外数组的乘积
 //构造乘积数组，同 offer66
 #include <vector>
 

@@ -5,6 +5,7 @@
 using namespace std;
 
 // 摩尔投票法
+// lc169的升级版
 
 class Solution {
 public:

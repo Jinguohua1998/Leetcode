@@ -18,7 +18,6 @@ public:
             x *= x;
             b >>= 1;
         }
-        return res;
-            
+        return res;   
     }
 };

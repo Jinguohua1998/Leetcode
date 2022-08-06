@@ -1,6 +1,6 @@
 /*
-给定两个整数，分别表示分数的分子 numerator 和分母 denominator，以 字符串形式返回小数 。
-
+给定两个整数，分别表示分数的分子 numerator 和分母 denominator，
+以 字符串形式返回小数 。
 如果小数部分为循环小数，则将循环的部分括在括号内。
 */
 
@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// 模拟除法
 class Solution {
 public:
     string fractionToDecimal(int numerator, int denominator) {
@@ -21,7 +22,8 @@ public:
         b = abs(b);
         res += to_string(a / b) + '.';
         a = a % b;
-        unordered_map<long, int> numMap;  // key存储被除数，val记录当前余数所在答案的位置
+        // key存储被除数，val记录当前余数所在答案的位置
+        unordered_map<long, int> numMap;  
         while( a != 0){
             numMap[a] = res.size();
             a *= 10;
