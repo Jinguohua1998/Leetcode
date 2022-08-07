@@ -13,6 +13,8 @@ int getRandom() 随机返回现有集合中的一项（测试用例保证调用�
 #include <stdlib.h>
 #include <bits/stdc++.h>
 
+using namespace std;
+
 class RandomizedSet {
 public:
     RandomizedSet() {
