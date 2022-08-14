@@ -11,6 +11,7 @@ class Solution {
 public:
     int networkDelayTime(vector<vector<int>> &times, int n, int k) {
         const int inf = INT_MAX / 2;
+        // 构建邻接表
         vector<vector<int>> g(n, vector<int>(n, inf));
         for (auto &t : times) {          
             g[t[0]-1][t[1]-1] = t[2];
@@ -20,7 +21,7 @@ public:
         dist[k - 1] = 0;
         vector<bool> used(n, false);
         for (int i = 0; i < n; ++i) {
-            int x = -1;
+            int x = -1; // 记录下一个到达的顶点索引
             for (int y = 0; y < n; ++y) {
                 if (!used[y] && (x == -1 || dist[y] < dist[x])) {
                     x = y;
@@ -51,7 +52,7 @@ public:
         }
         vector<int> dist(n, inf);
         dist[k - 1] = 0;
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> q;
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
         q.emplace(0, k - 1);
         while (!q.empty()) {
             auto p = q.top();

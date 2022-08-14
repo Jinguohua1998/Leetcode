@@ -108,7 +108,7 @@ public:
 
             for (int k = 0; k < g[i].size(); k++) {
                 int j = g[i][k];
-                int w = abs(points[i][0] - points[j][0]) + abs(points[i][1] - points[j][1]);
+                int w = abs(points[i][0] - points[j][0]) + abs(points[i][1] - points[j][1]);    // 计算曼哈顿距离
                 if (v[j] == -1 && lowcost[j] > w) {
                     lowcost[j] = w;
                     pq.push(make_pair(w, j));
