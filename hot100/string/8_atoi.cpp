@@ -30,6 +30,7 @@ public:
             if(s[index] < '0' || s[index] > '9')
                 break;
             char curChar = s[index];
+            // 考虑溢出的情况
             if(res > INT_MAX || (res == INT_MAX / 10 && (curChar - '0' > INT_MAX % 10)))
                 return INT_MAX;
             if(res < INT_MIN || (res == INT_MIN / 10 && (curChar - '0' > -(INT_MIN % 10))))// INT_MIN%10 要加负号
